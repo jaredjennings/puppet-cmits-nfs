@@ -14,5 +14,6 @@
 # % See the License for the specific language governing permissions and
 # % limitations under the License.
 class nfs::client::no {
-    include "nfs::client::no::${::osfamily}"
+    $lower_osfamily = downcase($::osfamily)
+    include "nfs::client::no::${lower_osfamily}"
 }
