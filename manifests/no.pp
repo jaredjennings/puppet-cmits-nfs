@@ -20,7 +20,7 @@
 
 class nfs::no {
     case $osfamily {
-        RedHat: {
+        'RedHat': {
             case $operatingsystemrelease {
                 /6\..*/: {
 # We have to do this using an exec because the package type can only
@@ -45,9 +45,9 @@ class nfs::no {
                         "nfs-utils": ensure => absent;
                     }
                 }
-                default: { unimplemented() }
+                default: { fail "unimplemented on ${::osfamily} ${::operatingsystemrelease}" }
             }
         }
-        default: { unimplemented() }
+        default: { fail "unimplemented on ${::osfamily}" }
     }
 }

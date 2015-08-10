@@ -30,7 +30,7 @@ class nfs {
 # statements. For further implementations, decide which is simpler and better.
 
     case $osfamily {
-        RedHat: {
+        'RedHat': {
             $portmap = $operatingsystemrelease ? {
                 /^6.*/ => "rpcbind",
                 /^5.*/ => "portmap",
@@ -64,7 +64,7 @@ class nfs {
         }
 # Mac OS X Snow Leopard is rather more monolithically installed, and comes with
 # NFS support.
-        darwin: {}
-        default: { unimplemented() }
+        'Darwin': {}
+        default: { fail "unimplemented on ${::osfamily}" }
     }
 }

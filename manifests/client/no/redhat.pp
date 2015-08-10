@@ -43,6 +43,6 @@ class nfs::client::no::redhat {
                 "nfs-utils": ensure => absent;
             }
         }
-        default: { unimplemented() }
+        default: { fail "unimplemented on ${::osfamily} ${::operatingsystemrelease}" }
     }
 }

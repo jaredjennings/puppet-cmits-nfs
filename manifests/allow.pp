@@ -32,9 +32,9 @@ class nfs::allow($from) inherits nfs {
                         ensure => running,
                     }
                 }
-                default: { unimplemented() }
+                default: { fail "unimplemented on ${::osfamily} ${::operatingsystemrelease}" }
             }
         }
-        default: { unimplemented() }
+        default: { fail "unimplemented on ${::osfamily}" }
     }
 }
