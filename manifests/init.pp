@@ -34,7 +34,7 @@ class nfs {
             $portmap = $operatingsystemrelease ? {
                 /^6.*/ => "rpcbind",
                 /^5.*/ => "portmap",
-                default => fail("unimplemented on ${::osfamily} ${::operatingsystemrelease}")(),
+                default => fail("unimplemented on ${::osfamily} ${::operatingsystemrelease}"),
             }
             package { $portmap: ensure => present }
             tcp_wrappers::allow { $portmap:
