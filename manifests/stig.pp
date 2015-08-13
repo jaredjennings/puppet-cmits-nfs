@@ -19,7 +19,7 @@ class nfs::stig {
 # \implements{unixsrg}{GEN005740,GEN005750,GEN005760}%
 # Control ownership and permissions of the \verb!exports! file.
     file { "/etc/exports":
-        owner => root, group => 0, mode => 0644,
+        owner => root, group => 0, mode => '0644',
     }
 # \implements{unixsrg}{GEN005770}%
 # Remove extended ACLs on the \verb!exports!  file.

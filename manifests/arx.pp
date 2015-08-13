@@ -27,7 +27,7 @@ class nfs::arx {
     case $::osfamily {
         'RedHat': {
             file { '/etc/modprobe.d/sunrpc.conf':
-                owner => root, group => 0, mode => 0644,
+                owner => root, group => 0, mode => '0644',
                 content => "
 options sunrpc tcp_max_slot_table_entries=16
 ",
